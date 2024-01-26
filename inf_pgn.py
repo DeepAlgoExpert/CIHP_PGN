@@ -211,7 +211,8 @@ def main():
         # print("here")
         parsing_im = parsing_im.convert('P')
         parsing_im.save('{}/{}_vis.png'.format(parsing_dir, img_id))
-        cv2.imwrite('{}/{}.png'.format(parsing_dir, img_id), parsing_[0,:,:,0])
+        #cv2.imwrite('{}/{}.png'.format(parsing_dir, img_id), parsing_[0,:,:,0])
+        Image.fromarray(np.uint8(parsing_[0,:,:,0])).convert("P").save('{}/{}.png'.format(parsing_dir, img_id))
         #Image.fromarray(parsing_[0,:,:,0]).convert("P").save('{}/{}.png'.format(parsing_dir, img_id))
         # sio.savemat('{}/{}.mat'.format(parsing_dir, img_id), {'data': scores[0,:,:]})
         
